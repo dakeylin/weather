@@ -1,0 +1,425 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
+  margin: 0 auto;
+  display: flex;
+  gap: 35px;
+}
+
+.planner-modal {
+  display: none;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  overflow: auto;
+  background-color: rgb(212, 99, 99);
+  background-color: rgba(38, 76, 94, 0.4);
+}
+
+.planner-modal_container {
+  background-color: #d3d0d0;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 25px;
+  width: 600px;
+}
+
+.planner-modal_container h2 {
+  color: black;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.planner-modal_container h2 img {
+  width: 30px;
+  margin-left: 10px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
+}
+
+#input-box {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 10px;
+}
+
+#btn-box {
+  border-radius: 0 15px 15px 0;
+  outline: none;
+  padding: 16px 50px;
+  background: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#list-container li {
+  list-style: none;
+  font-size: 17px;
+  padding: 12px 8px 12px 50px;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+  word-break: break-all;
+}
+
+#list-container li::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  color: #000000;
+  border-radius: 50%;
+  background-image: url(/src/images/unchecked.png);
+  background-size: cover;
+  background-position: center;
+  top: 7px;
+  left: 8px;
+}
+
+#list-container .checked {
+  color: #555;
+  text-decoration: line-through;
+  position: relative;
+}
+
+#list-container .checked::before {
+  content: "";
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  color: #000;
+  border-radius: 50%;
+  background-image: url(/src/images/checked.png);
+  background-size: cover;
+  background-position: center;
+  top: 7px;
+  left: 8px;
+}
+
+#list-container li span {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+#list-container li span:hover {
+  background: #edeef0;
+}
+
+#focus-modal {
+  display: none;
+}
+
+#city {
+  margin-left: auto;
+}
+
+#city-modal {
+  display: none;
+}
+
+.searh-wrapper {
+  margin-top: 50px;
+}
+
+#cityInput {
+  font-family: inherit;
+  width: 50%;
+  border: 0;
+  border-bottom: 2px solid #909694;
+  outline: 0;
+  font-size: 1.3rem;
+  color: rgb(0, 0, 0);
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+#checkWeatherBtn {
+  align-items: center;
+  background-image: linear-gradient(#464d55, #70757a);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  height: 30px;
+  line-height: 1;
+  padding: 0 20px;
+  text-align: center;
+  transform: translate3d(0, 0, 0);
+  transition: all 150ms;
+}
+
+#checkWeatherBtn:hover {
+  box-shadow: rgba(0, 1, 0, 0.2) 0 2px 8px;
+  opacity: 0.85;
+}
+
+#checkWeatherBtn:active {
+  outline: 0;
+}
+
+#checkWeatherBtn:focus {
+  box-shadow: rgba(0, 0, 0, 0.5) 0 0 0 3px;
+}
+
+@media (max-width: 420px) {
+  #checkWeatherBtn {
+    height: 48px;
+  }
+}
+
+#checkWeatherBtn {
+  border-radius: 15px;
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.cityClose {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.cityClose:hover,
+.cityClose:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#startTimer {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: inherit;
+}
+
+#startTimer:hover {
+  color: #775959;
+}
+
+#timerDisplay {
+  font-size: 48px;
+  margin: 20px 0;
+}
+
+.date {
+  display: flex;
+  color: white;
+  font-size: 18px;
+}
+
+.image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
+  z-index: -1;
+  filter: grayscale(60%) brightness(60%);
+}
+
+main {
+  padding-top: 200px;
+  text-align: center;
+}
+
+.time {
+  font-size: 60px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.climate {
+  margin-top: 20px;
+  color: #ffffff;
+}
+
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+  display: grid;
+  place-items: center;
+}
+
+.contacts {
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px;
+}
+
+
+.modal {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  overflow: auto;
+  background-color: rgb(212, 99, 99);
+  background-color: rgba(38, 76, 94, 0.4);
+}
+
+.modal_content {
+  background-color: #d3d0d0;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 25px;
+  width: 600px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn {
+  width: 150px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  background: #00000046;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  text-align: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+.btn:active {
+  color: #000;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:hover:before {
+  opacity: 1;
+}
+
+.btn:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #f8bbd4c7;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test-app</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="planner">
+          <button id="planner-btn" class="btn">Задачи</button>
+          <div class="planner-modal" id="plannerModal">
+            <div class="planner-modal_container">
+              <span id="close-planner" class="close">&times;</span>
+              <h2>Список задач <img src="./src/images/icon.png"></h2>
+              <div class="row">
+                <input type="text" id="input-box" placeholder="Введите задачу">
+                <button id="btn-box">Создать</button>
+              </div>
+              <ul id="list-container"></ul>
+            </div>
+          </div>
+        </div>
+        <button id="focus-btn" class="btn">Focus</button>
+        <div id="focus-modal" class="modal">
+          <div class="focus-modal_content modal_content">
+            <span id="closeFocus" class="close">&times;</span>
+            <h2>Сконцентрируйтесь на важном под расслабляющую музыку</h2>
+            <div id="timerDisplay">30:00</div>
+            <button id="startTimer">Запустить таймер</button>
+            <audio
+              id="audio"
+              src="./src/relax-music.mp3"
+              preload="auto"
+            ></audio>
+          </div>
+        </div>
+        <button id="city" class="btn"></button>
+        <div class="modal" id="city-modal">
+          <div class="modal_content city-modal_content">
+            <span id="cityClose" class="close">&times;</span>
+            <div class="searh-wrapper">
+              <input placeholder="Введите город" type="text" id="cityInput" />
+              <button id="checkWeatherBtn">Найти</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="time"></div>
+      <div class="date">
+          <p class="day"></p>
+        </div>
+      </div>
+      <div class="climate">
+        <h3 class="temp"></h3>
+        <h3 class="humidity"></h3>
+        <h3 class="wind"></h3>
+      </div>
+      <img class="image" />
+    </main>
+    <footer>
+      <a class="contacts" href="https://portfolio-dakeylin.vercel.app">Контакты</a>
+    </footer>
+    <script src="./src/script.js"></script>
+  </body>
+</html>
